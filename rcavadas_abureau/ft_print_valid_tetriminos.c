@@ -1,23 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_print_valid_tetriminos.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/08 16:22:42 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/08 16:22:44 by rcavadas         ###   ########.fr       */
+/*   Created: 2015/12/09 16:39:59 by rcavadas          #+#    #+#             */
+/*   Updated: 2015/12/09 16:40:02 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		FT_LIST_H
-# define	FT_LIST_H
-
-typedef struct tetriminos_list
-{
-	unsigned int			id;
-	char					*tetrimino;
-	struct tetriminos_list	*next;
-}							tetriminos_list;
-
-#endif

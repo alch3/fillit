@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 16:49:28 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/08 18:30:03 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/09 18:33:47 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,42 @@
 #include "libft.h"
 #define BUFSIZE 21;
 
-void			ft_insertion(tetriminos_list **begin_list, char *new_tetrimino, unsigned int new_id)
+void			ft_push_forward(tetri_list **beginning, char *new_tetrimino, unsigned int new_id)
 {
-	tetriminos_list *new_t;
-	new_t = malloc(sizeof(*new_t));
-	if (liste == NULL || new_t == NULL)
+	tetri_list *new;
+	new = malloc(sizeof(*new));
+	if (new == NULL)
 		return ;
-	new_t->tetriminos = ft_strdup(new_tetrimino);
-	new_t->id = ft_check_id(new_id);
-	new_t->next = *begin_list;
-	begin_list = &new_t;
+	new->tetrimino = ft_strdup(new_tetrimino);
+	new->id = ft_check_id(new_id);
+	new->next = *beginning;
+	beginning = &new_t;
 }
 
-void			ft_push_back(tetriminos_list **begin_list, char *new_tetrimino, unsigned int new_id)
+void			ft_push_back(tetri_list **beginning, char *new_tetrimino, unsigned int new_id)
 {
-	tetriminos_list *tmp;
-	tetriminos_list *elem;
+	tetri_list *tmp;
+	tetri_list *elem;
 
-	tmp = *begin_list;
+	tmp = *beginning;
 	while(tmp->next)
 		tmp = tmp->next;
 	elem = malloc(sizeof(*elem));
 	tmp->next = &elem;
-	elem->tetriminos = ft_strdup(new_tetrimino);
+	elem->tetrimino = ft_strdup(new_tetrimino);
 	elem->id = ft_comp(elem->tetrimino);
 	elem->next = NULL;
 }
 
-tetriminos_list ft_map_to_list()
+tetri_list		ft_map_to_list()
 {
 	int				fd;
 	unsigned int 	i;
 	char			buf[BUFSIZE + 1];
-	tetriminos_list	*begin;
+	tetri_list		*beginning;
 
 	i = 0;
-	tmp = begin;
+	tmp = beginning;
 	fd = open("valid_tetriminos.txt", O_RDONLY);
 	if (fd < 0)
 		return (NULL);
@@ -58,9 +58,7 @@ tetriminos_list ft_map_to_list()
 	{
 		i++;
 		buf[ret] = \0;
-		ft_insertion(*begin, buf, i)
+		ft_push_back(*beginning, buf, i)
 	}
-
-
-	return (begin);
+	return (beginning);
 }
