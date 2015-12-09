@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 16:49:28 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/09 18:33:47 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/09 18:53:58 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			ft_push_back(tetri_list **beginning, char *new_tetrimino, unsigned int ne
 	tetri_list *elem;
 
 	tmp = *beginning;
-	while(tmp->next)
+	while (tmp->next)
 		tmp = tmp->next;
 	elem = malloc(sizeof(*elem));
 	tmp->next = &elem;
