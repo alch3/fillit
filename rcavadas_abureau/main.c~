@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 17:06:17 by abureau           #+#    #+#             */
-/*   Updated: 2015/12/09 19:35:41 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/09 19:33:47 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int main(int argc, char **argv)
 		ft_putendl("error");
 	return (0);
 	ft_map_to_list();
-	ft_print_valid_tetriminos(**beginning);
+
 }
