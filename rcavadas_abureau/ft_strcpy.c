@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:44:32 by rcavadas         ###   ########.fr       */
+/*   Created: 2015/12/15 23:38:10 by rcavadas          #+#    #+#             */
+/*   Updated: 2015/12/15 23:43:24 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int	main(void)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	t_lstptr testlist;
+	int	i;
 
-	testlist = NULL;
-	testlist = ft_lstaddlast(testlist, 3, "element3");
-	testlist = ft_lstaddfirst(testlist, 0, "element0");
-	testlist = ft_lstaddfirst(testlist, 1, "element1");
-	testlist = ft_lstaddfirst(testlist, 2, "element2");
-	ft_lstprint(testlist);
-	return (0);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

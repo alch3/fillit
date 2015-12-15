@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:44:32 by rcavadas         ###   ########.fr       */
+/*   Created: 2015/12/15 22:01:01 by rcavadas          #+#    #+#             */
+/*   Updated: 2015/12/15 22:02:01 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int	main(void)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_lstptr testlist;
+	size_t	i;
 
-	testlist = NULL;
-	testlist = ft_lstaddlast(testlist, 3, "element3");
-	testlist = ft_lstaddfirst(testlist, 0, "element0");
-	testlist = ft_lstaddfirst(testlist, 1, "element1");
-	testlist = ft_lstaddfirst(testlist, 2, "element2");
-	ft_lstprint(testlist);
-	return (0);
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

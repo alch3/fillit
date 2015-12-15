@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:44:32 by rcavadas         ###   ########.fr       */
+/*   Created: 2015/12/15 22:04:14 by rcavadas          #+#    #+#             */
+/*   Updated: 2015/12/15 23:28:16 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int	main(void)
+size_t	ft_lstcount(t_lstptr element)
 {
-	t_lstptr testlist;
+	t_lstptr	tmp;
+	size_t		i;
 
-	testlist = NULL;
-	testlist = ft_lstaddlast(testlist, 3, "element3");
-	testlist = ft_lstaddfirst(testlist, 0, "element0");
-	testlist = ft_lstaddfirst(testlist, 1, "element1");
-	testlist = ft_lstaddfirst(testlist, 2, "element2");
-	ft_lstprint(testlist);
-	return (0);
+	if (!element)
+		return (0);
+	i = 0;
+	tmp = element;
+	while (tmp != NULL)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }

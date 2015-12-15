@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:44:32 by rcavadas         ###   ########.fr       */
+/*   Created: 2015/12/15 23:41:08 by rcavadas          #+#    #+#             */
+/*   Updated: 2015/12/15 23:43:10 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int	main(void)
+char	*ft_strdup(const char *s1)
 {
-	t_lstptr testlist;
+	char	*dest;
 
-	testlist = NULL;
-	testlist = ft_lstaddlast(testlist, 3, "element3");
-	testlist = ft_lstaddfirst(testlist, 0, "element0");
-	testlist = ft_lstaddfirst(testlist, 1, "element1");
-	testlist = ft_lstaddfirst(testlist, 2, "element2");
-	ft_lstprint(testlist);
-	return (0);
+	if (s1)
+	{
+		dest = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1);
+		if (dest)
+		{
+			ft_strcpy(dest, s1);
+			return (dest);
+		}
+	}
+	return (NULL);
 }
