@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:37:34 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:37:29 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ struct					s_list
 	struct s_list		*next;
 };
 
-t_lstptr				ft_lstaddfirst(t_lstptr element, int i, char *str);
-t_lstptr				ft_lstaddlast(t_lstptr element, int i, char *str);
+t_lstptr				ft_lstaddfirst(t_lstptr element, int i, const char *str);
+t_lstptr				ft_lstaddlast(t_lstptr element, int i, const char *str);
 size_t					ft_lstcount(t_lstptr element);
 void					ft_lstdel(t_lstptr element);
 void					ft_lstprint(t_lstptr element);

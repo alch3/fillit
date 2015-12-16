@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 22:18:50 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/16 20:23:46 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/16 19:33:02 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	ft_lstdel(t_lstptr element)
 
 	tmp1 = element;
 	tmp2 = tmp1->next;
-	if (element)
+	while (tmp2 != NULL)
 	{
-		while (tmp2->next)
-		{
-			free(tmp1->tetrimino);
-			free(tmp1);
-			tmp1 = tmp2;
-			tmp2 = tmp1->next;
-		}
 		free(tmp1->tetrimino);
 		free(tmp1);
+		tmp1 = tmp2;
+		tmp2 = tmp1->next;
 	}
+	free(tmp1->tetrimino);
+	free(tmp1);
+	tmp1 = NULL;
+	tmp2 = NULL;
+	element = NULL;
 }

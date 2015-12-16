@@ -6,18 +6,18 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 21:47:06 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:18:14 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/16 20:14:53 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-t_lstptr	ft_lstaddlast(t_lstptr element, int i, char *str)
+t_lstptr	ft_lstaddlast(t_lstptr element, int i, const char *str)
 {
 	t_lstptr	newelement;
 	t_lstptr	tmp;
 
-	newelement = (t_lstptr)malloc(sizeof(element));
+	newelement = (t_lstptr)malloc(sizeof(t_list));
 	tmp = element;
 	newelement->index = i;
 	newelement->tetrimino = ft_strdup(str);
