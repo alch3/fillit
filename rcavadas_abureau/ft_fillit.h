@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/17 16:14:29 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/20 17:06:14 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list	*t_lstptr;
 
 struct					s_list
 {
-	int					id;
+	int					index;
 	int					type;
 	char				*tetrimino;
 	struct s_list		*next;
