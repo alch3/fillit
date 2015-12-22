@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/20 20:09:29 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/22 17:55:27 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		ft_putstr("error");
 		return (0);
 	}
-	ft_filetolst(ft_filegetfd("valid_tetriminos.txt"), lstvalid);
+	ft_validtolst(ft_filegetfd("valid_tetriminos.txt"), lstvalid);
 	ft_filetolst(ft_filegetfd(argv[1]), lsttoarrange);
 	if (ft_lstcmp(lstvalid, lsttoarrange) != 0)
 		return (0);
