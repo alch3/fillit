@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/20 17:06:14 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/22 17:13:32 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int						ft_lstcmp(t_lstptr elem1, t_lstptr elem2);
 size_t					ft_lstcount(t_lstptr element);
 void					ft_lstdel(t_lstptr *element);
 void					ft_lstprint(t_lstptr element);
+void					*ft_memset(void *b, int c, size_t len);
 void					ft_putchar(char c);
 void					ft_putnbr(int i);
 void					ft_putstr(const char *str);
