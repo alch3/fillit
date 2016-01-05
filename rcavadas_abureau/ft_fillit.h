@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 16:35:37 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/05 18:02:40 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ struct					s_list
 t_list					*ft_lstnew(/*int i, const char *str*/);
 int						ft_fileclose(int fd);
 int						ft_filegetfd(char *str);
-t_list					*ft_filetolst(int fd, t_list *element);
-void					ft_lstaddlast(t_list **element, int i, const char *str);
-int						ft_lstcmp(t_list *elem1, t_list *elem2);
+void					ft_filetolst(int fd, t_list **begin);
+void					ft_lstaddlast(t_list **element, int i, int j,
+		const char *str);
+int						ft_lstcmp(t_list **begin, const char *str);
 size_t					ft_lstcount(t_list *element);
 void					ft_lstdel(t_list **element);
 void					ft_lstprint(t_list *element);
@@ -47,19 +48,3 @@ char					*ft_strdup(const char *s1);
 size_t					ft_strlen(const char *str);
 void					ft_validtolst(int fd, t_list **begin);
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

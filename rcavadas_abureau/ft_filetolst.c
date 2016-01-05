@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddlast.c                                    :+:      :+:    :+:   */
+/*   ft_filetolst.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 21:47:06 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 17:25:52 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/01/05 16:53:48 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/05 18:13:55 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_lstaddlast(t_list **element, int i, int j, const char *str)
+void	ft_filetolst(int fd, t_list **begin)
 {
-	t_list	*tmp;
-	t_list	*newelement;
+	char		buf[22];
+	int			ret;
+	int			index;
+	int			typestab[26];
+	index = 0;
 
-	newelement = (t_list*)malloc(sizeof(t_list));
-	tmp = *element;
-	newelement->index = i;
-	newelement->type = j;
-	newelement->tetrimino = ft_strdup(str);
-	newelement->next = NULL;
-	if (tmp == NULL)
+	while ((ret = read(fd, buf, 21)))
 	{
-		*element = newelement;
-		return ;
+		if (ret == 20)
+		{
+			ft_putstr("last\n");
+			buf[20] = '\n';
+			buf[21] = '\0';
+			ft_putstr(buf);
+			ft_putnbr(ft_strlen(buf));
+		}
+	typestab[index] = ft_lstcmp(begin, buf);
+		index++;
 	}
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = newelement;
 }
