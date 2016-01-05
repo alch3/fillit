@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:56:15 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/16 22:10:07 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 12:59:20 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_lstprint(t_lstptr element)
 	t_lstptr	tmp;
 
 	tmp = element;
-	if (ft_lstcount(element))
+	if (element)
 	{
-		while (tmp != NULL)
+		while (tmp)
 		{
 			ft_putnbr(tmp->index);
-			ft_putchar(' ');
+			ft_putchar('\n');
 			ft_putstr(tmp->tetrimino);
 			ft_putchar('\n');
 			tmp = tmp->next;

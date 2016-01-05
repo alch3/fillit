@@ -6,9 +6,11 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 17:11:18 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/22 17:13:56 by rcavadas         ###   ########.fr       */
+/*   Updated: 2015/12/22 19:56:17 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_fillit.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
