@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validtolst.c                                    :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 16:44:47 by abureau          ###   ########.fr       */
+/*   Created: 2015/12/15 22:18:50 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/05 14:51:32 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_validtolst(int fd, t_list **begin)
+void	ft_lstdel(t_list **element)
 {
-	char		buf[22];
-	int			ret;
-	int			index;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-	index = 0;
-	while ((ret = read(fd, buf, 21)))
+	tmp1 = *element;
+	tmp2 = tmp1->next;
+	if (element)
 	{
-		buf[ret] = 0;
-		ft_lstaddlast(begin, index, buf);
-		index++;
+		while (tmp2->next)
+		{
+			free(tmp1->tetrimino);
+			free(tmp1);
+			tmp1 = tmp2;
+			tmp2 = tmp1->next;
+		}
+		free(tmp1->tetrimino);
+		free(tmp1);
 	}
+	*element = NULL;
 }
-
-
-
-
-
-
-
-
-
-

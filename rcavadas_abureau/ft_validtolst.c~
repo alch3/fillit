@@ -6,25 +6,27 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 16:44:47 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/05 15:40:29 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_validtolst(int fd, t_list **begin)
+t_list	*ft_validtolst(int fd)
 {
 	char		buf[22];
 	int			ret;
 	int			index;
+	t_list		*elem;
 
 	index = 0;
 	while ((ret = read(fd, buf, 21)))
 	{
 		buf[ret] = 0;
-		ft_lstaddlast(begin, index, buf);
-		index++;
+		elem = ft_lstaddlast(elem, index++, buf);
+//		ft_putstr(element->tetrimino);
 	}
+	return();
 }
 
 

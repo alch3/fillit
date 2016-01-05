@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validtolst.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 16:44:47 by abureau          ###   ########.fr       */
+/*   Created: 2016/01/05 16:23:54 by abureau           #+#    #+#             */
+/*   Updated: 2016/01/05 16:44:59 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_validtolst(int fd, t_list **begin)
+t_list *ft_lstnew(int i, const char *str)
 {
-	char		buf[22];
-	int			ret;
-	int			index;
+	t_list  *newelement;
 
-	index = 0;
-	while ((ret = read(fd, buf, 21)))
-	{
-		buf[ret] = 0;
-		ft_lstaddlast(begin, index, buf);
-		index++;
-	}
+	newelement = (t_list*)malloc(sizeof(t_list));
+	newelement = NULL;
+	return (newelement);
 }
 
 

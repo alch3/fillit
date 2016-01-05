@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validtolst.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 16:44:47 by abureau          ###   ########.fr       */
+/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/05 14:43:45 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_validtolst(int fd, t_list **begin)
+int	main(int argc, char **argv)
 {
-	char		buf[22];
-	int			ret;
-	int			index;
+	t_list	*lstvalid;
+	t_list	*lsttoarrange;
 
-	index = 0;
-	while ((ret = read(fd, buf, 21)))
-	{
-		buf[ret] = 0;
-		ft_lstaddlast(begin, index, buf);
-		index++;
-	}
+	lstvalid = NULL;
+//	if (argc != 2)
+//	{
+//		ft_putstr("error");
+//		return (0);
+//	}
+	ft_validtolst(ft_filegetfd("valid_tetriminos.txt"), lstvalid);
+//	ft_filetolst(ft_filegetfd(argv[1]), lsttoarrange);
+	return (0);
 }
-
-
-
-
-
-
-
-
-
-
