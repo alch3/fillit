@@ -6,16 +6,16 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 22:18:50 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/17 16:03:29 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:51:32 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_lstdel(t_lstptr *element)
+void	ft_lstdel(t_list **element)
 {
-	t_lstptr tmp1;
-	t_lstptr tmp2;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
 	tmp1 = *element;
 	tmp2 = tmp1->next;

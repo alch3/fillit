@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 14:07:31 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:50:43 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <sys/uio.h>
 
 typedef struct s_list	t_list;
-typedef struct s_list	*t_lstptr;
 
 struct					s_list
 {
@@ -31,12 +30,12 @@ struct					s_list
 
 int						ft_fileclose(int fd);
 int						ft_filegetfd(char *str);
-t_lstptr				ft_filetolst(int fd, t_lstptr element);
-void					ft_lstaddlast(t_lstptr element, int i, const char *str);
-int						ft_lstcmp(t_lstptr elem1, t_lstptr elem2);
-size_t					ft_lstcount(t_lstptr element);
-void					ft_lstdel(t_lstptr *element);
-void					ft_lstprint(t_lstptr element);
+t_list					*ft_filetolst(int fd, t_list *element);
+void					ft_lstaddlast(t_list *element, int i, const char *str);
+int						ft_lstcmp(t_list *elem1, t_list *elem2);
+size_t					ft_lstcount(t_list *element);
+void					ft_lstdel(t_list **element);
+void					ft_lstprint(t_list *element);
 void					*ft_memset(void *b, int c, size_t len);
 void					ft_putchar(char c);
 void					ft_putnbr(int i);
@@ -45,5 +44,5 @@ int						ft_strcmp(const char *s1, const char *s2);
 char					*ft_strcpy(char *dest, const char *src);
 char					*ft_strdup(const char *s1);
 size_t					ft_strlen(const char *str);
-void					ft_validtolst(int fd, t_lstptr element);
+void					ft_validtolst(int fd, t_list *element);
 #endif

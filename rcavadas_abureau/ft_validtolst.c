@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 14:10:30 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:52:33 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_validtolst(int fd, t_lstptr element)
+void	ft_validtolst(int fd, t_list *element)
 {
 	char		buf[22];
 	int			ret;

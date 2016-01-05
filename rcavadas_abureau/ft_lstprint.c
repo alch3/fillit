@@ -6,15 +6,15 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:56:15 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 12:59:20 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:51:16 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_lstprint(t_lstptr element)
+void	ft_lstprint(t_list *element)
 {
-	t_lstptr	tmp;
+	t_list	*tmp;
 
 	tmp = element;
 	if (element)

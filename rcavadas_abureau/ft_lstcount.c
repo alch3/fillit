@@ -6,16 +6,16 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 22:04:14 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/16 22:10:21 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/05 14:49:33 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-size_t	ft_lstcount(t_lstptr element)
+size_t	ft_lstcount(t_list *element)
 {
-	t_lstptr	tmp;
-	size_t		i;
+	t_list	*tmp;
+	size_t	i;
 
 	if (!element)
 		return (0);
