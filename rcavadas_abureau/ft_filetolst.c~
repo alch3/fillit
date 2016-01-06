@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:53:48 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/06 16:38:32 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/06 16:21:01 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	*ft_filetolst(int fd, t_list **begin)
 	int			nbchar;
 
 	index = 0;
-	nbchar = 0;
 	tab = (int*)malloc(sizeof(int) * 27);
+	nbchar = 0;
 	while ((ret = read(fd, buf, 21)))
 	{
 		if (ret == 20)
@@ -30,7 +30,8 @@ int	*ft_filetolst(int fd, t_list **begin)
 			buf[20] = '\n';
 			buf[21] = '\0';
 		}
-		tab[index++] = ft_lstcmp(begin, buf);
+		tab[index] = ft_lstcmp(begin, buf);
+		index++;
 		nbchar = nbchar + ret;
 	}
 	ft_fileclose(fd);

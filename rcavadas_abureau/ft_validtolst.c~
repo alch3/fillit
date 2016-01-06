@@ -6,15 +6,16 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/06 16:45:04 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/06 16:20:05 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
+
 static int	gettypebis(int index)
 {
-	if (index >= 65 && index <= 70)
+	if (index >= 65  && index <= 70)
 		return (11);
 	else if (index >= 71 && index <= 76)
 		return (12);
@@ -62,7 +63,7 @@ static int	gettype(int index)
 		return (gettypebis(index));
 }
 
-void		ft_validtolst(int fd, t_list **begin)
+void	ft_validtolst(int fd, t_list **begin)
 {
 	char		buf[22];
 	int			ret;
