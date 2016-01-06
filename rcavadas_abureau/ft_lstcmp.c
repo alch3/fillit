@@ -13,7 +13,6 @@ int	ft_lstcmp(t_list **begin, const char *str)
 			return (tmp->type);
 		tmp = tmp->next;
 	}
-	ft_putstr("error");
-	exit(3);
+	ft_error(begin, NULL);
 	return (0);
 }

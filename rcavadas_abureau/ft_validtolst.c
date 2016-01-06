@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 22:12:24 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 17:29:58 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/06 16:20:05 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void	ft_validtolst(int fd, t_list **begin)
 		ft_lstaddlast(begin, index, gettype(index), buf);
 		index++;
 	}
+	ft_fileclose(fd);
 }
