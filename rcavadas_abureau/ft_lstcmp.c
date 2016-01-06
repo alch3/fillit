@@ -9,8 +9,10 @@ int	ft_lstcmp(t_list **begin, const char *str)
 	tmp = *begin;
 	while (tmp->next)
 	{
-		if (ft_strcmp(tmp->tetrimino, str) == 0)
-			return (tmp->type);
+		ft_putnbr(ft_strcmp(tmp->tetrimino, str));
+		ft_putchar('\n');
+//		if (ft_strcmp(tmp->tetrimino, str) == 0)
+//			return (tmp->type);
 		tmp = tmp->next;
 	}
 	ft_putstr("error");

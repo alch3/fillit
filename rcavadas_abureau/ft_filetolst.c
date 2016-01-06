@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:53:48 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 18:13:55 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/06 12:58:57 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_filetolst(int fd, t_list **begin)
 			ft_putstr(buf);
 			ft_putnbr(ft_strlen(buf));
 		}
-	typestab[index] = ft_lstcmp(begin, buf);
-		index++;
+	ft_lstcmp(begin, buf);
+//	index++;
 	}
 }

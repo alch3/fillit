@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 22:15:41 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/17 15:41:24 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/06 11:57:03 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_filegetfd(char *str)
 	if (fd == -1)
 	{
 		ft_putstr("open() failed.\n");
-		return (fd);
+		exit(3);
 	}
 	return (fd);
 }
