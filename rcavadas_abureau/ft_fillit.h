@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/05 18:02:40 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/06 14:04:12 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,24 @@ void					*ft_memset(void *b, int c, size_t len);
 void					ft_putchar(char c);
 void					ft_putnbr(int i);
 void					ft_putstr(const char *str);
+void					ft_putendl(const char *str);
 int						ft_strcmp(const char *s1, const char *s2);
 char					*ft_strcpy(char *dest, const char *src);
 char					*ft_strdup(const char *s1);
 size_t					ft_strlen(const char *str);
 void					ft_validtolst(int fd, t_list **begin);
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
