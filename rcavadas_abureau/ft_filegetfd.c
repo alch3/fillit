@@ -18,6 +18,6 @@ int	ft_filegetfd(char *str)
 
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-		ft_error(NULL, NULL);
+		ft_error(NULL);
 	return (fd);
 }

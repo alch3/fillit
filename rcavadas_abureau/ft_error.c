@@ -12,11 +12,9 @@
 
 #include "ft_fillit.h"
 
-void	ft_error(t_list **lst, int *tab)
+void	ft_error(int *tab)
 {
 	ft_putstr("error");
-	if (lst)
-		ft_lstdel(lst);
 	if (tab)
 		free(tab);
 	exit(3);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_fillit.h>
+#include "ft_fillit.h"
 
 static int	ft_nbpieces(int *tab)
 {
@@ -19,15 +19,18 @@ static int	ft_nbpieces(int *tab)
 	index = 0;
 	while (tab[index++])
 	return (index);
+
+	return (0);
 }
 
-static void	ft_sqrgen(int i)
+static int	**ft_sqrgen(int i)
 {
 	int	**sqr;
 
 //	TO DO : IMPLEMENTER UNE FONCTION DE CALCUL DE RACINE CARREE
 //	FORMULE DE CREATION DE SQR POUR MALLOC : racine de (nbtetri*4)
-	sqr = (int**)malloc(sizeof(int) )
+	sqr = (int**)malloc(sizeof(int) );
+	return (sqr);
 }
 
 void	ft_arrange(int *tab)

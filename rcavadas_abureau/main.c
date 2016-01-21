@@ -14,19 +14,17 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*lstvalid;
 	int		*types;
 	int		index;
 
-	lstvalid = NULL;
 	index = 0;
 	if (argc != 2)
 	{
 		ft_putstr("error");
 		return (0);
 	}
-	ft_validtolst(ft_filegetfd("valid_tetriminos.txt"), &lstvalid);
-	types = ft_filetolst(ft_filegetfd(argv[1]), &lstvalid);
+	ft_putendl("begining test");
+	types = ft_filetotab(ft_filegetfd(argv[1]));
 
 	return (0);
 }

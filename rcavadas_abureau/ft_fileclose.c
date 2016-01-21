@@ -15,6 +15,6 @@
 int	ft_fileclose(int fd)
 {
 	if (close(fd) == -1)
-		ft_error(NULL, NULL);
+		ft_error(NULL);
 	return (1);
 }

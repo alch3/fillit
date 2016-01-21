@@ -29,25 +29,22 @@ struct					s_list
 };
 
 void					ft_arrange(int *tab);
-void					ft_error(t_list **lst, int *tab);
+void					ft_error(int *tab);
 int						ft_fileclose(int fd);
 int						ft_filegetfd(char *str);
-int						*ft_filetolst(int fd, t_list **begin);
-void					ft_lstaddlast(t_list **element, int i, int j,
-		const char *str);
-int						ft_lstcmp(t_list **begin, const char *str);
-size_t					ft_lstcount(t_list *element);
-void					ft_lstdel(t_list **element);
-void					ft_lstprint(t_list *element);
-void					*ft_memset(void *b, int c, size_t len);
 void					ft_putchar(char c);
 void					ft_putnbr(int i);
 void					ft_putstr(const char *str);
 void					ft_putendl(const char *str);
-void					ft_sqrgen(int i);
 int						ft_strcmp(const char *s1, const char *s2);
 char					*ft_strcpy(char *dest, const char *src);
 char					*ft_strdup(const char *s1);
 size_t					ft_strlen(const char *str);
 void					ft_validtolst(int fd, t_list **begin);
+
+
+int					*ft_filetotab(int fd);
+int					ft_getid(int tabindex);
+int					ft_filecomp(const char *str);
+
 #endif

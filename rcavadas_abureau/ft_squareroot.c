@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "ft_fillit.h"
 
 int ft_squareroot(int a)
 {
@@ -21,12 +20,4 @@ int ft_squareroot(int a)
 	while (x * x < a)
 		++x;
 	return (x);
-}
-
-
-int main(int ac, char **av)
-{
-	if (ac == 2)
-		printf("le carre de %d vaut : %d \n", ft_squareroot(atoi(av[1])), atoi(av[1]));
-	return (0);
 }
