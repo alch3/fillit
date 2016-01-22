@@ -11,7 +11,7 @@ int	*ft_filetotab(int fd)
 
 	index = 0;
 	nbchar = 0;
-	tab = (int*)malloc(sizeof(int) * 27);
+       	tab = (int*)malloc(sizeof(int) * 1000000);
 	while ((ret = read(fd, buf, 21)))
 	{
 		if (ret == 20)
@@ -24,7 +24,7 @@ int	*ft_filetotab(int fd)
 	if (tab[index - 1] == -1)
 	  ft_error(tab);
 
-		ft_putendl("tetrimino ok");
+	ft_putendl("tetrimino ok");
 
 	}
 	ft_fileclose(fd);

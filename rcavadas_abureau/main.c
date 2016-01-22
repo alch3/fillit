@@ -16,7 +16,9 @@ int	main(int argc, char **argv)
 {
 	int		*types;
 	int		index;
+	int i;
 
+	i = 0;
 	index = 0;
 	if (argc != 2)
 	{
@@ -26,5 +28,6 @@ int	main(int argc, char **argv)
 	ft_putendl("begining test");
 	types = ft_filetotab(ft_filegetfd(argv[1]));
 
+	ft_arrange(types);
 	return (0);
 }
