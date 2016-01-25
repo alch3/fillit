@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   id00.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 17:35:40 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/01/25 19:01:49 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/25 19:24:57 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
-
-int	main(int argc, char **argv)
+static int	can_i_write(char **sqr, int size)
 {
-	int	*types;
-	int	index;
-	int	i;
+}
 
-	i = 0;
-	index = 0;
-	if (argc != 2)
+static char	**put_in_sqr(char **sqr, int size, char letter, int *coord)
+{
+}
+
+int	id00(char **sqr, int size, char letter)
+{
+	int	coord[2];
+
+	coord[0] = 0;
+	coord[1] = 0;
+	while ((coord[0] < size) && (coord[1] <= size))
 	{
-		ft_putstr("error");
-		return (0);
+		if (can_i_write(sqr, size))
+			sqr = put_in_sqr(sqr, size, letter, coord);
 	}
-	types = ft_filetotab(ft_filegetfd(argv[1]));
-	ft_arrange(types);
-	return (0);
 }

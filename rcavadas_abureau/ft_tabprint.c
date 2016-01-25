@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tabprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 17:35:40 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/01/25 18:08:38 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/25 19:25:00 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-int	main(int argc, char **argv)
+void	ft_tabprint(char **sqr, int size)
 {
-	int	*types;
-	int	index;
 	int	i;
+	int j;
 
 	i = 0;
-	index = 0;
-	if (argc != 2)
+	j = 0;
+	while ((i <  size) && (j <= size))
 	{
-		ft_putstr("error");
-		return (0);
+		ft_putchar(sqr[i][j]);
+		j++;
+		if((j == size) && (i < size))
+		{
+			ft_putchar('\n');
+			j = 0;
+			i++;
+		}
 	}
-	types = ft_filetotab(ft_filegetfd(argv[1]));
-	ft_arrange(types);
-	return (0);
 }

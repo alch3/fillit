@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_getid.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/25 12:52:29 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/01/25 19:24:59 by rcavadas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_fillit.h"
 
@@ -51,7 +62,7 @@ static int	gettype(int index)
 		return (gettypebis(index));
 }
 
-int		ft_getid(int tabindex)
+int			ft_getid(int tabindex)
 {
-  return (gettype(tabindex));
+	return (gettype(tabindex));
 }
