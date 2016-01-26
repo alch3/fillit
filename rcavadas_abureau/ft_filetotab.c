@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:41:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 18:52:41 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/26 18:58:44 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	*ft_filetotab(int fd)
 		}
 		tab[index++] = ft_filecomp(buf);
 		nbchar = nbchar + ret;
-		if (tab[index - 1] == -1)
-			ft_error(tab);
 	}
 	if (nbchar % 21 == 0)
 		ft_error(tab);

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:44:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 12:45:51 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/26 18:57:36 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	ft_filecomp(const char *str)
 			return (ft_getid(i));
 		i++;
 	}
+	ft_error(NULL);
 	return (-1);
 }

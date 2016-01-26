@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 18:53:55 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/26 18:48:04 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,23 @@ static char	**ft_sqrgen(int nbtetri)
 	int		index;
 	int		i;
 	int		j;
+	int		gridsize;
 
+	gridsize = ft_squareroot(nbtetri * 4);
 	index = 0;
 	i = 0;
 	j = 0;
-	sqr = (char**)malloc(sizeof(char*) * ft_squareroot(nbtetri * 4));
-	while (index <= ft_squareroot(nbtetri * 4))
+	if (gridsize < 4)
+		gridsize = 4;
+	sqr = (char**)malloc(sizeof(char*) * gridsize);
+	while (index <= gridsize)
 	{
-		sqr[index] = (char*)malloc(sizeof(char) * ft_squareroot(nbtetri * 4));
+		sqr[index] = (char*)malloc(sizeof(char) * gridsize);
 		index++;
 	}
 	while ((i < index - 1) && (j < index))
 	{
-		sqr[i][j] = '0';
+		sqr[i][j] = '.';
 		j++;
 		if ((j == index - 1) && (i < index))
 		{
@@ -55,8 +59,13 @@ void		ft_arrange(int *tab)
 {
 	char	**sqr;
 	int		nbtetri;
+	int		gridsize;
 
 	nbtetri = ft_nbpieces(tab);
+	gridsize = ft_squareroot(nbtetri * 4);
+	if (gridsize < 4)
+		gridsize = 4;
 	sqr = ft_sqrgen(nbtetri);
-	ft_tabprint(sqr, 6);
+	sqr = ft_sqr_filler(tab, sqr, gridsize);
+	ft_tabprint(sqr, gridsize);
 }
