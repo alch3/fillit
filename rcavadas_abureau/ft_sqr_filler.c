@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:43:46 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 16:51:54 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/27 18:24:59 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,15 @@ char		**ft_sqr_filler(int *tab, char **sqr, int *size)
 		Y = 0;
 		if (can_i_write(tab[i], sqr, *size, coord) == 0)
 		{
-			i--;
-			sqr = ft_searchdot(sqr, coord, *size, 'A' + i);
+			Y = 0;
+//			i--;
+			sqr = ft_sqrinc(sqr, *size);
+			*size += 1;
 		}
 		else
 		{
 			sqr = put_in_sqr(tab[i], 'A' + i, sqr, coord);
+//			sqr = ft_searchdot(sqr, coord, size, 'A' + i);
 			i++;
 		
 		}
