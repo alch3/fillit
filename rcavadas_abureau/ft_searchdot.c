@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabprint.c                                      :+:      :+:    :+:   */
+/*   ft_searchdot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/25 18:08:38 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 13:33:45 by abureau          ###   ########.fr       */
+/*   Created: 2016/01/27 16:09:50 by abureau           #+#    #+#             */
+/*   Updated: 2016/01/27 16:51:51 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
-
-void	ft_tabprint(char **sqr, int size)
+static char	**backintime(char **sqr, int *coord, int size, int letter)
 {
-	int i;
-	int j;
 
-	i = 0;
-	j = 0;
-	while ((i < size) && (j <= size))
+	return (sqr);
+}
+
+char	**ft_searchdot(char **sqr, int *coord, int size, int i)
+{
+	sqr = backintime(sqr, coord, size, i);
+	while(sqr[Y][X] != '.')
 	{
-		ft_putchar(sqr[i][j]);
-		j++;
-		if ((j == size) && (i < size))
-		{
-			ft_putchar('\n');
-			j = 0;
-			i++;
-		}
+		
 	}
+	return (sqr);
 }

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/26 18:48:04 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/01/27 16:51:57 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ static char	**ft_sqrgen(int nbtetri)
 	index = 0;
 	i = 0;
 	j = 0;
-	if (gridsize < 4)
-		gridsize = 4;
 	sqr = (char**)malloc(sizeof(char*) * gridsize);
 	while (index <= gridsize)
 	{
@@ -54,7 +52,6 @@ static char	**ft_sqrgen(int nbtetri)
 	}
 	return(sqr);
 }
-
 void		ft_arrange(int *tab)
 {
 	char	**sqr;
@@ -63,9 +60,9 @@ void		ft_arrange(int *tab)
 
 	nbtetri = ft_nbpieces(tab);
 	gridsize = ft_squareroot(nbtetri * 4);
-	if (gridsize < 4)
-		gridsize = 4;
 	sqr = ft_sqrgen(nbtetri);
-	sqr = ft_sqr_filler(tab, sqr, gridsize);
+//	ft_putnbr(gridsize);
+//	ft_tabprint(sqr, &gridsize);
+	sqr = ft_sqr_filler(tab, sqr, &gridsize);
 	ft_tabprint(sqr, gridsize);
 }
