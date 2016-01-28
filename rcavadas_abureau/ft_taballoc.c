@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_searchdot.c                                     :+:      :+:    :+:   */
+/*   ft_taballoc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/27 16:09:50 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/28 14:57:39 by abureau          ###   ########.fr       */
+/*   Created: 2016/01/28 15:25:28 by abureau           #+#    #+#             */
+/*   Updated: 2016/01/28 15:33:42 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-static void	backintime(char **sqr, int size, int letter)
+char	**ft_taballoc(int gridsize, int *index)
 {
-	int		nl;
-	int		i;
-	int		j;
+	char	**newsqr;
 
-	nl = 4;
-	i = 0;
-	j = 0;
-	while (nl > 0)
+	*index = 0;
+	newsqr = (char**)malloc(sizeof(char*) * gridsize);
+	while (*index <= gridsize)
 	{
-		if (sqr[i][j] == letter)
-		{
-			sqr[i][j] = '.';
-			nl--;
-		}
-		j++;
-		if (j == size)
-		{
-			i++;
-			j = 0;
-		}
+		newsqr[*index] = (char*)malloc(sizeof(char) * gridsize);
+		*index += 1;
 	}
+	return (newsqr);
 }
 
-void		ft_searchdot(char **sqr, int *coord, int *size, int i)
-{
-	backintime(sqr, *size, i);
-}

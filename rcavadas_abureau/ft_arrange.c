@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 16:51:57 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/28 15:52:00 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,9 @@ static char	**ft_sqrgen(int nbtetri)
 	int		gridsize;
 
 	gridsize = ft_squareroot(nbtetri * 4);
-	index = 0;
 	i = 0;
 	j = 0;
-	sqr = (char**)malloc(sizeof(char*) * gridsize);
-	while (index <= gridsize)
-	{
-		sqr[index] = (char*)malloc(sizeof(char) * gridsize);
-		index++;
-	}
+	sqr = ft_taballoc(gridsize, &index);
 	while ((i < index - 1) && (j < index))
 	{
 		sqr[i][j] = '.';
@@ -50,8 +44,9 @@ static char	**ft_sqrgen(int nbtetri)
 			i++;
 		}
 	}
-	return(sqr);
+	return (sqr);
 }
+
 void		ft_arrange(int *tab)
 {
 	char	**sqr;
@@ -61,8 +56,6 @@ void		ft_arrange(int *tab)
 	nbtetri = ft_nbpieces(tab);
 	gridsize = ft_squareroot(nbtetri * 4);
 	sqr = ft_sqrgen(nbtetri);
-//	ft_putnbr(gridsize);
-//	ft_tabprint(sqr, &gridsize);
 	sqr = ft_sqr_filler(tab, sqr, &gridsize);
 	ft_tabprint(sqr, gridsize);
 }

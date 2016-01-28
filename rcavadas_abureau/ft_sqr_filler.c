@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:43:46 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 18:24:59 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/28 15:22:13 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ static int	can_i_write(int tetrimino, char **sqr, int size, int *coord)
 	return (0);
 }
 
-static char	**put_in_sqr(int tetrimino, char letter, char **sqr, int *coord)
+static char	**put_in_sqr(int tetrimino, int *letter, char **sqr, int *coord)
 {
 	int	cursor;
 
 	cursor = 0;
 	while (g_put[tetrimino][cursor])
 	{
-		sqr[Y][X] = letter;
+		sqr[Y][X] = (char)*letter + 'A';
 		if (g_put[tetrimino][cursor] == '1')
 			incdecvar(&Y, &X);
 		else if (g_put[tetrimino][cursor] == '2')
@@ -87,7 +87,8 @@ static char	**put_in_sqr(int tetrimino, char letter, char **sqr, int *coord)
 			incdecvar(&X, &Y);
 		cursor++;
 	}
-	sqr[Y][X] = letter;
+	sqr[Y][X] = (char)*letter + 'A';
+	*letter += 1;
 	return (sqr);
 }
 
@@ -107,24 +108,12 @@ char		**ft_sqr_filler(int *tab, char **sqr, int *size)
 		if (can_i_write(tab[i], sqr, *size, coord) == 0)
 		{
 			Y = 0;
-//			i--;
-			sqr = ft_sqrinc(sqr, *size);
-			*size += 1;
+			sqr = ft_sqrinc(sqr, size);
 		}
 		else
 		{
-			sqr = put_in_sqr(tab[i], 'A' + i, sqr, coord);
-//			sqr = ft_searchdot(sqr, coord, size, 'A' + i);
-			i++;
-		
+			put_in_sqr(tab[i], &i, sqr, coord);
 		}
-		/*
-		else
-		{
-			sqr = ft_sqrinc(sqr, *size);
-			*size += 1;
-		}
-		*/
 	}
 	free(coord);
 	return (sqr);

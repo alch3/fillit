@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 17:13:24 by abureau          ###   ########.fr       */
+/*   Updated: 2016/01/28 15:24:40 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int						ft_strcmp(const char *s1, const char *s2);
 char					*ft_strcpy(char *dest, const char *src);
 char					*ft_strdup(const char *s1);
 size_t					ft_strlen(const char *str);
-char					**ft_sqrinc(char **sqr, int gridsize);
+char					**ft_sqrinc(char **sqr, int *gridsize);
 void					ft_tabprint(char **sqr, int size);
-char					**ft_searchdot(char **sqr, int *coord, int *size, int i);
+char					**ft_taballoc(int gridsize, int *index);
+void					ft_searchdot(char **sqr, int *coord, int *size, int i);
 
 #endif
