@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 13:04:25 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/28 15:29:11 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/08 15:02:43 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_sqrcpy(char **sqr, char **newsqr, int index)
 	{
 		newsqr[i][j] = sqr[i][j];
 		j++;
-		if ((j == index - 1) && (i < index))
+		if ((j == index) && (i < index))
 		{
 			j = 0;
 			i++;

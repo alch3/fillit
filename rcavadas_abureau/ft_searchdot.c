@@ -6,13 +6,13 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 16:09:50 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/28 14:57:39 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/08 13:57:00 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-static void	backintime(char **sqr, int size, int letter)
+static void	backintime(char **sqr, int size, char letter)
 {
 	int		nl;
 	int		i;
@@ -39,5 +39,5 @@ static void	backintime(char **sqr, int size, int letter)
 
 void		ft_searchdot(char **sqr, int *coord, int *size, int i)
 {
-	backintime(sqr, *size, i);
+	backintime(sqr, *size, (char)i + 'A');
 }

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/28 15:24:40 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/08 14:19:56 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/uio.h>
 # define X coord[1]
 # define Y coord[0]
+# define IGNORE coord[2]
 
 void					ft_arrange(int *tab);
 void					ft_error(int *tab);
