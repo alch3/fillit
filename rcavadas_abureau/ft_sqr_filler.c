@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:43:46 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/09 16:19:09 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/09 16:31:01 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ static int	can_i_write(int tetrimino, char **sqr, int size, int *coord)
 	{
 		if (sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, sqr, size, coord))
-				while (IGNORE != 0)
-				{
-					return (1);
-				}
+				return (1);
 		X += 1;
 		if ((X == size) && (Y < size))
 		{
@@ -98,26 +95,32 @@ char		**ft_sqr_filler(int *tab, char **sqr, int *size)
 {
 	int	*coord;
 	int	letter;
-	coord = (int*)malloc(sizeof(int) * 3);
+	coord = (int*)malloc(sizeof(int) * 5);
 	Y = 0;
 	X = 0;
-	IGNORE = 0;
+	LAST = 0;
+	TMPX = 0;
+	TMPY = 0;
 	letter = 0;
 	while (tab[letter] != -1)
 	{
 		X = 0;
 		Y = 0;
-		ft_tabprint(sqr, *size);
-		if(can_i_write(tab[letter], sqr, *size, coord) == 0 && letter == 0)
-			sqr = ft_sqrinc(sqr, size);
-		else if(can_i_write(tab[letter], sqr, *size, coord) == 0)
+//		ft_tabprint(sqr, *size);
+
+		if((can_i_write(tab[letter], sqr, *size, coord)) == 0 && (letter <= 0))
 		{
+			sqr = ft_sqrinc(sqr, size);
+		}
+			else if(can_i_write(tab[letter], sqr, *size, coord) == 0)
+		{
+			ft_putendl("I can't write");
 			letter--;
 			ft_searchdot(sqr, coord, size, letter);
-
 		}
 		else
 		{
+			ft_putendl("I can write");
 			put_in_sqr(tab[letter], &letter, sqr, coord);
 		}
 	}

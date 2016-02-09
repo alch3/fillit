@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/08 15:29:30 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/09 16:30:59 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <sys/uio.h>
 # define X coord[1]
 # define Y coord[0]
-# define IGNORE coord[2]
+# define TMPY coord[2]
+# define LAST coord[2]
+# define TMPX coord[3]
 
 void					ft_arrange(int *tab);
 void					ft_error(int *tab);
