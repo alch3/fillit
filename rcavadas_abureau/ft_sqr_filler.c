@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:43:46 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/09 18:40:39 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/09 18:49:55 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ char		**ft_sqr_filler(int *tab, char **sqr, int *size)
 	TMPX = 0;
 	TMPY = 0;
 	letter = 0;
+	int result;
+	ft_putstr("INIT : letter : "); ft_putchar(letter + 'A');ft_putchar('\n');
 	while (tab[letter] != -1)
 	{
 		ft_tabprint(sqr, *size);
@@ -123,12 +125,14 @@ char		**ft_sqr_filler(int *tab, char **sqr, int *size)
 			var++;
 		}
 		var = 0;
-		if ((can_i_write(tab[letter], sqr, *size, coord)) == 0 && (letter <= 0))
+		ft_putstr("INIT : letter : "); ft_putchar(letter + 'A');ft_putchar('\n');
+		result = can_i_write(tab[letter], sqr, *size, coord);
+ 		if ((result == 0) && (letter <= 0))
 		{
 			ft_putendl("INCREMENTATION SQR");
 			sqr = ft_sqrinc(sqr, size);
 		}
-		else if (can_i_write(tab[letter], sqr, *size, coord) == 0)
+		else if (result == 0)
 		{
 			ft_putendl("I can't write");
 			letter--;
