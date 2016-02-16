@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/09 17:40:44 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/16 12:44:27 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
 # define TMPY coord[2]
 # define TMPX coord[3]
 
+typedef	struct s_params{
+	int	*typearray;
+	int	fail[27];
+	int	*size;
+	int nbpiece;
+	char **sqr;
+	int	letter;
+}t_params;
+
 void					ft_arrange(int *tab);
 void					ft_error(int *tab);
 int						ft_fileclose(int fd);
@@ -33,7 +42,9 @@ void					ft_putchar(char c);
 void					ft_putnbr(int i);
 void					ft_putstr(const char *str);
 void					ft_putendl(const char *str);
-char					**ft_sqr_filler(int *tab, char **sqr, int *size);
+
+//char					**ft_sqr_filler(int *tab, char **sqr, int *size);
+
 int						ft_squareroot(int i);
 int						ft_strcmp(const char *s1, const char *s2);
 char					*ft_strcpy(char *dest, const char *src);
@@ -44,4 +55,11 @@ void					ft_tabprint(char **sqr, int size);
 char					**ft_taballoc(int gridsize, int *index);
 void					ft_searchdot(char **sqr, int *coord, int *size, int i);
 
+void					ft_resolv(t_params params);
+
+
+
+/*****************************/
+void	ft_printstruct(t_params params);
+/*****************************/
 #endif

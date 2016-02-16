@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqr_filler.c                                    :+:      :+:    :+:   */
+/*   ft_resolv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/26 17:43:46 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/08 14:59:23 by abureau          ###   ########.fr       */
+/*   Created: 2016/02/16 11:29:16 by abureau           #+#    #+#             */
+/*   Updated: 2016/02/16 12:49:38 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_fillit.h"
 #include "frankerz.h"
+
+static int	g_coordsav[27][2];
 
 static void	incdecvar(int *a, int *b)
 {
@@ -49,25 +52,25 @@ static int	move_cursor(int tetrimino, char **sqr, int s, int *coord)
 
 static int	can_i_write(int tetrimino, char **sqr, int size, int *coord)
 {
-	int	cursor;
-
-	cursor = 0;
+	ft_putstr("In Can I write : letter : "); ft_putchar(tetrimino + 'A');ft_putchar('\n');
 	while ((X < size) && (Y < size))
 	{
+		g_coordsav[tetrimino][1] = Y;
+		g_coordsav[tetrimino][0] = X;
 		if (sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, sqr, size, coord))
-				if (cursor >= IGNORE)
-				{
-					return (1);
-				}
-		cursor++;
+				return (1);
 		X += 1;
-		if ((X == size) && (Y < size))
+		if ((X >= size) && (Y < size))
 		{
 			X = 0;
 			Y += 1;
 		}
 	}
+	g_coordsav[tetrimino][1] = 0;
+	g_coordsav[tetrimino][0] = 0;
+	X = 0;
+	Y = 0;
 	return (0);
 }
 
@@ -98,43 +101,14 @@ static char	**put_in_sqr(int tetrimino, int *letter, char **sqr, int *coord)
 	return (sqr);
 }
 
-char		**ft_sqr_filler(int *tab, char **sqr, int *size)
+void	ft_resolv(t_params params)
 {
-	int	*coord;
-	int	i;
-	int	ignore;
-	int last;
-	coord = (int*)malloc(sizeof(int) * 3);
-	Y = 0;
-	X = 0;
-	i = 0;
-	IGNORE = 0;
-	last = 0;
-	while (tab[i] != -1)
+	int tmp;
+	while(params.typearray[params.letter] != -1)
 	{
-		if (can_i_write(tab[i], sqr, *size, coord) == 0 && (i <= 0))
-		{
-			sqr = ft_sqrinc(sqr, size);
-		}
-		else if (can_i_write(tab[i], sqr, *size, coord) == 0)
-		{
-			i--;
-			ft_searchdot(sqr, coord, size, i);
-			IGNORE++;
-		}
-		else
-		{
-			put_in_sqr(tab[i], &i, sqr, coord);
-		}
-		X = 0;
-		Y = 0;
-		if (IGNORE > (*size * *size))
-		{
-			i--;
-			ft_searchdot(sqr, coord, size, i);
-			IGNORE = 0;
-		}
+		tmp = can_i_write(CURRENT, );
+	
 	}
-	free(coord);
-	return (sqr);
 }
+
+
