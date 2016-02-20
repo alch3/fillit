@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 11:29:16 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/20 18:21:42 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/20 19:30:10 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,16 @@ static int		move_cursor(int tetrimino, t_params params)
 	return (1);
 }
 
-static int		can_i_write(int tetrimino, t_params params)
+static t_params	can_i_write(int tetrimino, t_params params)
 {
 	while ((X < *SQR_SIZE) && (Y < *SQR_SIZE))
 	{
 		if (params.sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, params))
-				return (1);
+			{
+				params.is_writable = 1;
+				return (params);
+			}
 		X += 1;
 		if ((X >= *SQR_SIZE) && (Y < *SQR_SIZE))
 		{
@@ -64,7 +67,8 @@ static int		can_i_write(int tetrimino, t_params params)
 	}
 	X = 0;
 	Y = 0;
-	return (0);
+	params.is_writable = 0;
+	return (params);
 }
 
 static t_params	put_in_sqr(int tetrimino, t_params params)
@@ -102,8 +106,8 @@ void			resolve(t_params params)
 	Y = 0;
 	while(LET_TO_PLACE != -1)
 	{
-		tmp = can_i_write(LET_TO_PLACE, params);
-		ft_putnbr(tmp);
-		LETTER++;
+		params = can_i_write(LET_TO_PLACE, params);
+		if (params.is_writable == 1)
+			params = put_in_sqr(LET_TO_PLACE, params);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/20 18:18:56 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/20 19:25:11 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct			s_params
 	int					*sqr_size;
 	int					tries_cnt[27];
 	int					*typearray;
+	char				is_writable;
 	int					x;
 	int					y;
 }						t_params;

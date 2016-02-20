@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/20 18:18:22 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/20 19:26:45 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,16 @@ static char		**ft_sqrgen(int nbtetri)
 
 static t_params	initstruct(int *tab, int *gridsize)
 {
-	int i;
+	int			i;
+	t_params	params;
 
 	i = 0;
-	t_params params;
 	params.typearray = tab;
 	params.sqr_size = gridsize;
 	params.letter = 0;
 	params.nbpiece = ft_nbpieces(params.typearray);
-	params.sqr = ft_sqrgen(params.nbpiece);	
+	params.sqr = ft_sqrgen(params.nbpiece);
+	params.is_writable = 0;
 	while(params.typearray[i] != -1)
 	{
 		params.tries_cnt[i] = 0;
@@ -73,9 +74,7 @@ void			ft_arrange(int *tab)
 	t_params	params;
 
 	nbtetri = ft_nbpieces(tab);
-	ft_putstr("nbtetri = "); ft_putnbr(nbtetri); ft_putchar('\n');
 	gridsize = ft_squareroot(nbtetri * 4);
-	ft_putstr("gridsize = "); ft_putnbr(gridsize); ft_putchar('\n');
 	params = initstruct(tab, &gridsize);
 	params.sqr = ft_sqrinc(params.sqr,&gridsize);
 	resolve(params);
