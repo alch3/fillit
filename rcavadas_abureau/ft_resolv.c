@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 11:29:16 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/19 22:51:21 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/20 18:21:42 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static int		move_cursor(int tetrimino, t_params params)
 	int t[2];
 
 	cursor = 0;
-	t[0] = *Y;
-	t[1] = *X;
+	t[0] = Y;
+	t[1] = X;
 	while (g_put[tetrimino][cursor])
 	{
 		if (g_put[tetrimino][cursor] == '1')
@@ -50,21 +50,20 @@ static int		move_cursor(int tetrimino, t_params params)
 
 static int		can_i_write(int tetrimino, t_params params)
 {
-	ft_putstr("In Can I write : letter : "); ft_putchar(tetrimino + 'A');ft_putchar('\n');
-	while ((*X < *SQR_SIZE) && (*Y < *SQR_SIZE))
+	while ((X < *SQR_SIZE) && (Y < *SQR_SIZE))
 	{
-		if (params.sqr[*Y][*X] == '.')
+		if (params.sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, params))
 				return (1);
-		*X += 1;
-		if ((*X >= *SQR_SIZE) && (*Y < *SQR_SIZE))
+		X += 1;
+		if ((X >= *SQR_SIZE) && (Y < *SQR_SIZE))
 		{
-			*X = 0;
-			*Y += 1;
+			X = 0;
+			Y += 1;
 		}
 	}
-	*X = 0;
-	*Y = 0;
+	X = 0;
+	Y = 0;
 	return (0);
 }
 
@@ -75,23 +74,23 @@ static t_params	put_in_sqr(int tetrimino, t_params params)
 	cursor = 0;
 	while (g_put[tetrimino][cursor])
 	{
-		params.sqr[*Y][*X] = (char)LETTER + 'A';
+		params.sqr[Y][X] = (char)LETTER + 'A';
 		if (g_put[tetrimino][cursor] == '1')
-			incdecvar(Y, X);
+			incdecvar(&Y, &X);
 		else if (g_put[tetrimino][cursor] == '2')
-			*Y += 1;
+			Y += 1;
 		else if (g_put[tetrimino][cursor] == '4')
-			*X -= 1;
+			X -= 1;
 		else if (g_put[tetrimino][cursor] == '6')
-			*X += 1;
+			X += 1;
 		else if (g_put[tetrimino][cursor] == '9')
-			incdecvar(X, Y);
+			incdecvar(&X, &Y);
 		cursor++;
 	}
-	params.sqr[*Y][*X] = (char)LETTER + 'A';
+	params.sqr[Y][X] = (char)LETTER + 'A';
 	LETTER += 1;
-	*X = 0;
-	*Y = 0;
+	X = 0;
+	Y = 0;
 	return (params);
 }
 
