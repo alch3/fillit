@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 18:24:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/16 12:44:27 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/19 22:27:00 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,24 @@
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# define X coord[1]
-# define Y coord[0]
-# define TMPY coord[2]
-# define TMPX coord[3]
+# define LET_TO_PLACE params.typearray[params.letter]
+# define LETTER params.letter
+# define NBPIECE params.nbpiece
+# define SQR_SIZE params.sqr_size
+# define X params.x
+# define Y params.y
 
-typedef	struct s_params{
-	int	*typearray;
-	int	fail[27];
-	int	*size;
-	int nbpiece;
-	char **sqr;
-	int	letter;
-}t_params;
+typedef struct			s_params
+{
+	int					letter;
+	int					nbpiece;
+	char				**sqr;
+	int					*sqr_size;
+	int					tries_cnt[27];
+	int					*typearray;
+	int					*x;
+	int					*y;
+}						t_params;
 
 void					ft_arrange(int *tab);
 void					ft_error(int *tab);
@@ -55,7 +60,7 @@ void					ft_tabprint(char **sqr, int size);
 char					**ft_taballoc(int gridsize, int *index);
 void					ft_searchdot(char **sqr, int *coord, int *size, int i);
 
-void					ft_resolv(t_params params);
+void					resolve(t_params params);
 
 
 

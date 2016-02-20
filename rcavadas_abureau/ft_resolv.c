@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 11:29:16 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/16 12:49:38 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/19 22:51:21 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 #include "ft_fillit.h"
 #include "frankerz.h"
 
-static int	g_coordsav[27][2];
-
-static void	incdecvar(int *a, int *b)
+static void		incdecvar(int *a, int *b)
 {
 	*a += 1;
 	*b -= 1;
 }
 
-static int	move_cursor(int tetrimino, char **sqr, int s, int *coord)
+static int		move_cursor(int tetrimino, t_params params)
 {
 	int	cursor;
 	int t[2];
 
 	cursor = 0;
-	t[0] = Y;
-	t[1] = X;
+	t[0] = *Y;
+	t[1] = *X;
 	while (g_put[tetrimino][cursor])
 	{
 		if (g_put[tetrimino][cursor] == '1')
@@ -42,73 +40,71 @@ static int	move_cursor(int tetrimino, char **sqr, int s, int *coord)
 			t[1] += 1;
 		else if (g_put[tetrimino][cursor] == '9')
 			incdecvar(&t[1], &t[0]);
-		if ((t[1] < 0) || (t[1] >= s) || (t[0] < 0) || (t[0] >= s)
-				|| (sqr[t[0]][t[1]] != '.'))
+		if ((t[1] < 0) || (t[1] >= *SQR_SIZE) || (t[0] < 0)
+				|| (t[0] >= *SQR_SIZE) || (params.sqr[t[0]][t[1]] != '.'))
 			return (0);
 		cursor++;
 	}
 	return (1);
 }
 
-static int	can_i_write(int tetrimino, char **sqr, int size, int *coord)
+static int		can_i_write(int tetrimino, t_params params)
 {
 	ft_putstr("In Can I write : letter : "); ft_putchar(tetrimino + 'A');ft_putchar('\n');
-	while ((X < size) && (Y < size))
+	while ((*X < *SQR_SIZE) && (*Y < *SQR_SIZE))
 	{
-		g_coordsav[tetrimino][1] = Y;
-		g_coordsav[tetrimino][0] = X;
-		if (sqr[Y][X] == '.')
-			if (move_cursor(tetrimino, sqr, size, coord))
+		if (params.sqr[*Y][*X] == '.')
+			if (move_cursor(tetrimino, params))
 				return (1);
-		X += 1;
-		if ((X >= size) && (Y < size))
+		*X += 1;
+		if ((*X >= *SQR_SIZE) && (*Y < *SQR_SIZE))
 		{
-			X = 0;
-			Y += 1;
+			*X = 0;
+			*Y += 1;
 		}
 	}
-	g_coordsav[tetrimino][1] = 0;
-	g_coordsav[tetrimino][0] = 0;
-	X = 0;
-	Y = 0;
+	*X = 0;
+	*Y = 0;
 	return (0);
 }
 
-static char	**put_in_sqr(int tetrimino, int *letter, char **sqr, int *coord)
+static t_params	put_in_sqr(int tetrimino, t_params params)
 {
 	int	cursor;
 
 	cursor = 0;
 	while (g_put[tetrimino][cursor])
 	{
-		sqr[Y][X] = (char)*letter + 'A';
+		params.sqr[*Y][*X] = (char)LETTER + 'A';
 		if (g_put[tetrimino][cursor] == '1')
-			incdecvar(&Y, &X);
+			incdecvar(Y, X);
 		else if (g_put[tetrimino][cursor] == '2')
-			Y += 1;
+			*Y += 1;
 		else if (g_put[tetrimino][cursor] == '4')
-			X -= 1;
+			*X -= 1;
 		else if (g_put[tetrimino][cursor] == '6')
-			X += 1;
+			*X += 1;
 		else if (g_put[tetrimino][cursor] == '9')
-			incdecvar(&X, &Y);
+			incdecvar(X, Y);
 		cursor++;
 	}
-	sqr[Y][X] = (char)*letter + 'A';
-	*letter += 1;
-	X = 0;
-	Y = 0;
-	return (sqr);
+	params.sqr[*Y][*X] = (char)LETTER + 'A';
+	LETTER += 1;
+	*X = 0;
+	*Y = 0;
+	return (params);
 }
 
-void	ft_resolv(t_params params)
+void			resolve(t_params params)
 {
 	int tmp;
-	while(params.typearray[params.letter] != -1)
+
+	X = 0;
+	Y = 0;
+	while(LET_TO_PLACE != -1)
 	{
-		tmp = can_i_write(CURRENT, );
-	
+		tmp = can_i_write(LET_TO_PLACE, params);
+		ft_putnbr(tmp);
+		LETTER++;
 	}
 }
-
-

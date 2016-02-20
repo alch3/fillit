@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 12:07:36 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/16 12:24:52 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/19 22:47:53 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void ft_printstruct(t_params params)
 	ft_putendl("\n\nRECAP STATE FAIL\n\n");
 	while(params.typearray[i] != -1)
 	{
-		ft_putchar(i + 'A');ft_putstr(" = ");ft_putnbr(params.fail[0]);
+		ft_putchar(i + 'A');ft_putstr(" = ");ft_putnbr(params.tries_cnt[0]);
 		ft_putchar('\n');
 		i++;
 	}

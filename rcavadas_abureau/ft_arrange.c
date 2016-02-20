@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/16 12:42:38 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/19 22:47:29 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static t_params	initstruct(int *tab, int *gridsize)
 	t_params params;
 
 	params.typearray = tab;
-	params.size = gridsize;
+	params.sqr_size = gridsize;
 	params.letter = 0;
 	params.nbpiece = ft_nbpieces(params.typearray);
 	params.sqr = ft_sqrgen(params.nbpiece);	
 	while(params.typearray[i] != -1)
 	{
-		params.fail[i] = 0;
+		params.tries_cnt[i] = 0;
 		i++;
 	}
 	return (params);
@@ -79,7 +79,7 @@ void		ft_arrange(int *tab)
 
 	
 	params.sqr = ft_sqrinc(params.sqr,&gridsize);
-	ft_resolv(params);
+	resolve(params);
 	ft_printstruct(params);
 	ft_tabprint(params.sqr, gridsize);
 	
