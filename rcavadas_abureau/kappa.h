@@ -6,12 +6,12 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 14:55:18 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/08 12:45:06 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 14:20:58 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAPPA_H
-# define KAPPA_H
+#ifndef __KAPPA_H
+# define __KAPPA_H
 
 # define F0000 '.','.','.','.','\n'
 # define F0001 '.','.','.','#','\n'

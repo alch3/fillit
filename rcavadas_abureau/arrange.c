@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 13:58:45 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:00:31 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 14:15:20 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 14:19:06 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		nbpieces(int *tab)
+static int		cntpieces(int *tab)
 {
 	int		index;
 
@@ -46,38 +46,36 @@ static char		**sqrgen(int nbtetri)
 	return (sqr);
 }
 
-static t_params	initstruct(int *tab, int *gridsize)
+static void	initstruct(int *tab, int *gridsize, t_params *params)
 {
 	int			i;
-	t_params	params;
 
 	i = 0;
-	params.typearray = tab;
-	params.sqrsize = gridsize;
-	params.letter = 0;
-	params.nbpiece = nbpieces(params.typearray);
-	params.sqr = sqrgen(params.nbpiece);
-	params.is_writable = 0;
-	while(params.typearray[i] != -1)
+	params->typearray = tab;
+	params->sqrsize = gridsize;
+	params->letter = 0;
+	params->nbpiece = cntpieces(params->typearray);
+	params->sqr = sqrgen(params->nbpiece);
+	params->iswritable = 0;
+	while(params->typearray[i] != -1)
 	{
-		params.triescnt[i] = 0;
+		params->triescnt[i] = 0;
 		i++;
 	}
-	return (params);
 }
 
-void			ft_arrange(int *tab)
+void			arrange(int *tab)
 {
 	
 	int			nbtetri;
 	int			gridsize;
-	t_params	params;
+	t_params	*params;
 
-	nbtetri = nbpieces(tab);
+	nbtetri = cntpieces(tab);
 	gridsize = squareroot(nbtetri * 4);
-	params = initstruct(tab, &gridsize);
-	params.sqr = sqrinc(params.sqr,&gridsize);
+	initstruct(tab, &gridsize, params);
+	params->sqr = sqrinc(params->sqr,&gridsize);
 	resolve(params);
-	printstruct(params);
-	tabprint(params.sqr, gridsize);
+//	ft_printstruct(params);
+	tabprint(params->sqr, gridsize);
 }

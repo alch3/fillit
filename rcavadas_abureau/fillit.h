@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:02:10 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:04:06 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 14:39:21 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define LET_TO_PLACE params->typearray[params->letter]
 # define LETTER params->letter
 # define NBPIECE params->nbpiece
-# define SQR_SIZE params->sqr_size
+# define SQR_SIZE params->sqrsize
 # define X params->x
 # define Y params->y
 
@@ -32,7 +32,7 @@ typedef struct	s_params
 	int			*sqrsize;
 	int			triescnt[27];
 	int			*typearray;
-	char		is_writable;
+	char		iswritable;
 	int			x;
 	int			y;
 }				t_params;
@@ -59,5 +59,4 @@ size_t			strlen(const char *str);
 char			**sqrinc(char **sqr, int *gridsize);
 void			tabprint(char **sqr, int size);
 char			**taballoc(int gridsize, int *index);
-
 #endif

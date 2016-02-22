@@ -6,12 +6,12 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 17:51:51 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 16:21:11 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 14:20:16 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRANKERZ_H
-# define FRANKERZ_H
+#ifndef __FRANKERZ_H
+# define __FRANKERZ_H
 
 char	g_put[19][4] = {{'6', '6', '6', '\0'},
 	{'6', '1', '6', '\0'},

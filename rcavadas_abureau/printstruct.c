@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstruct.c                                   :+:      :+:    :+:   */
+/*   printstruct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/16 12:07:36 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/22 12:56:39 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 14:21:57 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 14:21:59 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void printstruct(t_params params)
 	putendl("\n\nRECAP STATE FAIL\n\n");
 	while(params.typearray[i] != -1)
 	{
-		putchar(i + 'A');putstr(" = ");putnbr(params.tries_cnt[0]);
+		putchar(i + 'A');putstr(" = ");putnbr(params.triescnt[0]);
 		putchar('\n');
 		i++;
 	}

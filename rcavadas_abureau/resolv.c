@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_resolv.c                                        :+:      :+:    :+:   */
+/*   resolv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 13:06:46 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/22 13:08:39 by abureau          ###   ########.fr       */
+/*   Created: 2016/02/22 14:23:09 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 14:36:25 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 #include "frankerz.h"
 
 static int		move_cursor(int tetrimino, t_params *params)
@@ -23,8 +23,8 @@ static int		move_cursor(int tetrimino, t_params *params)
 	t[1] = X;
 	while (g_put[tetrimino][cursor])
 	{
-		if (g_put[tetrimino][cursor] == '1')
-			incdecvar(&t[0], &t[1]);
+		if (g_put[tetrimino][cursor] == '1' && ++t[0])
+			t[1]--;
 		else if (g_put[tetrimino][cursor] == '2')
 			t[0] += 1;
 		else if (g_put[tetrimino][cursor] == '4')
@@ -41,14 +41,14 @@ static int		move_cursor(int tetrimino, t_params *params)
 	return (1);
 }
 
-static void	can_i_write(int tetrimino, t_params *params)
+static void	caniwrite(int tetrimino, t_params *params)
 {
 	while ((X < *SQR_SIZE) && (Y < *SQR_SIZE))
 	{
 		if (params->sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, params))
 			{
-				params.is_writable = 1;
+				params->iswritable = 1;
 				return ;
 			}
 		X += 1;
@@ -60,10 +60,10 @@ static void	can_i_write(int tetrimino, t_params *params)
 	}
 	X = 0;
 	Y = 0;
-	params->is_writable = 0;
+	params->iswritable = 0;
 }
 
-static void	put_in_sqr(int tetrimino, t_params *params)
+static void	putinsqr(int tetrimino, t_params *params)
 {
 	int	cursor;
 
@@ -71,16 +71,16 @@ static void	put_in_sqr(int tetrimino, t_params *params)
 	while (g_put[tetrimino][cursor])
 	{
 		params->sqr[Y][X] = (char)LETTER + 'A';
-		if (g_put[tetrimino][cursor] == '1')
-			incdecvar(&Y, &X);
+		if (g_put[tetrimino][cursor] == '1' && ++Y)
+			X--;
 		else if (g_put[tetrimino][cursor] == '2')
 			Y += 1;
 		else if (g_put[tetrimino][cursor] == '4')
 			X -= 1;
 		else if (g_put[tetrimino][cursor] == '6')
 			X += 1;
-		else if (g_put[tetrimino][cursor] == '9')
-			incdecvar(&X, &Y);
+		else if (g_put[tetrimino][cursor] == '9' && ++X)
+			Y--;
 		cursor++;
 	}
 	params->sqr[Y][X] = (char)LETTER + 'A';
@@ -97,8 +97,8 @@ void			resolve(t_params *params)
 	Y = 0;
 	while(LET_TO_PLACE != -1)
 	{
-		can_i_write(LET_TO_PLACE, &params);
-		if (params->is_writable == 1)
-			put_in_sqr(LET_TO_PLACE, &params);
+		caniwrite(LET_TO_PLACE, params);
+		if (params->iswritable == 1)
+			putinsqr(LET_TO_PLACE, params);
 	}
 }
