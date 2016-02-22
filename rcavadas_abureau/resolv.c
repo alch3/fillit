@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resolv.c                                           :+:      :+:    :+:   */
+/*   ft_resolv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 14:06:17 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:06:18 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 13:06:46 by abureau           #+#    #+#             */
+/*   Updated: 2016/02/22 13:08:39 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "ft_fillit.h"
 #include "frankerz.h"
 
 static int		move_cursor(int tetrimino, t_params *params)
