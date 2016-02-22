@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:41:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/26 18:58:44 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 12:52:42 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-int	*ft_filetotab(int fd)
+int	*filetotab(int fd)
 {
 	char	buf[22];
 	int		ret;
@@ -30,12 +30,12 @@ int	*ft_filetotab(int fd)
 			buf[20] = '\n';
 			buf[21] = '\0';
 		}
-		tab[index++] = ft_filecomp(buf);
+		tab[index++] = filecomp(buf);
 		nbchar = nbchar + ret;
 	}
 	if (nbchar % 21 == 0)
-		ft_error(tab);
-	ft_fileclose(fd);
+		error(tab);
+	fileclose(fd);
 	tab[index] = -1;
 	return (tab);
 }

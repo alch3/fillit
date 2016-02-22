@@ -6,11 +6,11 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:52:29 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/26 17:44:00 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 12:54:56 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
 static int	gettypebis(int index)
 {
@@ -62,7 +62,7 @@ static int	gettype(int index)
 		return (gettypebis(index));
 }
 
-int			ft_getid(int tabindex)
+int			getid(int tabindex)
 {
 	return (gettype(tabindex));
 }

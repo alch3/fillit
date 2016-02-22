@@ -6,14 +6,14 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 14:02:04 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/06 16:16:22 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 12:57:11 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-void	ft_putendl(const char *str)
+void	putendl(const char *str)
 {
-	ft_putstr(str);
-	ft_putchar('\n');
+	putstr(str);
+	putchar('\n');
 }

@@ -6,13 +6,13 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 15:25:28 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/28 15:33:42 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 13:02:39 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-char	**ft_taballoc(int gridsize, int *index)
+char	**taballoc(int gridsize, int *index)
 {
 	char	**newsqr;
 

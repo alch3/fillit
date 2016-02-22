@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 18:08:38 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/27 13:33:45 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 13:02:56 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-void	ft_tabprint(char **sqr, int size)
+void	tabprint(char **sqr, int size)
 {
 	int i;
 	int j;
@@ -21,11 +21,11 @@ void	ft_tabprint(char **sqr, int size)
 	j = 0;
 	while ((i < size) && (j <= size))
 	{
-		ft_putchar(sqr[i][j]);
+		putchar(sqr[i][j]);
 		j++;
 		if ((j == size) && (i < size))
 		{
-			ft_putchar('\n');
+			putchar('\n');
 			j = 0;
 			i++;
 		}

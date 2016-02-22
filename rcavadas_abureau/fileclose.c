@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_fileclose.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 15:28:04 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/06 16:06:57 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 12:50:32 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 12:50:36 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-void	ft_error(int *tab)
+int	fileclose(int fd)
 {
-	ft_putstr("error");
-	if (tab)
-		free(tab);
-	exit(3);
+	if (close(fd) == -1)
+		error(NULL);
+	return (1);
 }

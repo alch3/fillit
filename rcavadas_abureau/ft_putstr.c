@@ -6,20 +6,20 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:14:28 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 19:19:16 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 12:58:18 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-void	ft_putstr(char const *str)
+void	putstr(char const *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_putchar(str[i]);
+		putchar(str[i]);
 		i++;
 	}
 }

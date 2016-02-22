@@ -6,13 +6,13 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 13:54:28 by abureau           #+#    #+#             */
-/*   Updated: 2016/01/25 12:53:00 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 13:01:06 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-int	ft_squareroot(int a)
+int	squareroot(int a)
 {
 	int x;
 

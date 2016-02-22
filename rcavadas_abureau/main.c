@@ -6,11 +6,11 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:35:13 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/01/25 17:35:40 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 13:03:49 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
 int	main(int argc, char **argv)
 {
@@ -22,10 +22,10 @@ int	main(int argc, char **argv)
 	index = 0;
 	if (argc != 2)
 	{
-		ft_putstr("error");
+		putstr("error");
 		return (0);
 	}
-	types = ft_filetotab(ft_filegetfd(argv[1]));
-	ft_arrange(types);
+	types = filetotab(filegetfd(argv[1]));
+	arrange(types);
 	return (0);
 }

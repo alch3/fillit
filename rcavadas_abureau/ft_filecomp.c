@@ -6,11 +6,11 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:44:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/08 15:07:47 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 13:05:18 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 #include "kappa.h"
 
 static char	g_valid[113][22] = {{F1111, F0000, F0000, F0000, EDL},
@@ -127,17 +127,17 @@ static char	g_valid[113][22] = {{F1111, F0000, F0000, F0000, EDL},
 	{F0000, F0010, F0110, F0100, EDL},
 	{F0000, F0001, F0011, F0010, EDL}};
 
-int	ft_filecomp(const char *str)
+int	filecomp(const char *str)
 {
 	int	i;
 
 	i = 0;
 	while (i < 113)
 	{
-		if (ft_strcmp(g_valid[i], str) == 0)
-			return (ft_getid(i));
+		if (strcmp(g_valid[i], str) == 0)
+			return (getid(i));
 		i++;
 	}
-	ft_error(NULL);
+	error(NULL);
 	return (-1);
 }

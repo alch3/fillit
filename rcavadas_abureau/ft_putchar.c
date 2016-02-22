@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:04:47 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 19:14:16 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 12:56:49 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-void	ft_putchar(char c)
+void	putchar(char c)
 {
 	write(1, &c, 1);
 }

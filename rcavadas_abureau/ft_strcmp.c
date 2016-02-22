@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 22:01:01 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 22:02:01 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 13:01:28 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 

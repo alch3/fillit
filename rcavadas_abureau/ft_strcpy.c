@@ -6,13 +6,13 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 23:38:10 by rcavadas          #+#    #+#             */
-/*   Updated: 2015/12/15 23:43:24 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 13:01:43 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*strcpy(char *dest, const char *src)
 {
 	int	i;
 
