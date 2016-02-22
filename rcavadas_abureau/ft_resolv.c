@@ -6,7 +6,7 @@
 /*   By: abureau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 11:29:16 by abureau           #+#    #+#             */
-/*   Updated: 2016/02/20 19:30:10 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 10:44:29 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static int		move_cursor(int tetrimino, t_params params)
 			t[1] -= 1;
 		else if (g_put[tetrimino][cursor] == '6')
 			t[1] += 1;
-		else if (g_put[tetrimino][cursor] == '9')
-			incdecvar(&t[1], &t[0]);
+		else if (g_put[tetrimino][cursor] == '9' && ++t[1])
+			t[0]--;
 		if ((t[1] < 0) || (t[1] >= *SQR_SIZE) || (t[0] < 0)
 				|| (t[0] >= *SQR_SIZE) || (params.sqr[t[0]][t[1]] != '.'))
 			return (0);
