@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:15:20 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 15:06:37 by abureau          ###   ########.fr       */
+/*   Updated: 2016/02/22 15:13:21 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static void	initstruct(int *tab, int *gridsize, t_params *params)
 	i = 0;
 	params->typearray = tab;
 	params->sqrsize = gridsize;
-
 	params->letter = 0;
 	params->nbpiece = cntpieces(params->typearray);
 	params->sqr = sqrgen(params->nbpiece);
