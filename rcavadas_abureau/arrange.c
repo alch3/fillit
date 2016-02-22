@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:15:20 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:19:06 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 15:06:37 by abureau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	initstruct(int *tab, int *gridsize, t_params *params)
 	i = 0;
 	params->typearray = tab;
 	params->sqrsize = gridsize;
+
 	params->letter = 0;
 	params->nbpiece = cntpieces(params->typearray);
 	params->sqr = sqrgen(params->nbpiece);
@@ -69,13 +70,13 @@ void			arrange(int *tab)
 	
 	int			nbtetri;
 	int			gridsize;
-	t_params	*params;
+	t_params	params;
 
 	nbtetri = cntpieces(tab);
 	gridsize = squareroot(nbtetri * 4);
-	initstruct(tab, &gridsize, params);
-	params->sqr = sqrinc(params->sqr,&gridsize);
-	resolve(params);
+	initstruct(tab, &gridsize, &params);
+	params.sqr = sqrinc(params.sqr,&gridsize);
+	resolve(&params);
 //	ft_printstruct(params);
-	tabprint(params->sqr, gridsize);
+	tabprint(params.sqr, gridsize);
 }
