@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:15:20 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 18:01:30 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:38:02 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ void			arrange(int *tab)
 	t_params	params;
 
 	nbtetri = cntpieces(tab);
-//	gridsize = squareroot(nbtetri * 4);
-	gridsize = 7;
+	gridsize = squareroot(nbtetri * 4);
 	initstruct(tab, &gridsize, &params);
 	resolve(&params);
 	tabprint(params.sqr, gridsize);

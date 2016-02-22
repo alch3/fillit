@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:01:03 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:01:04 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 22:24:51 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,11 @@ int	filecomp(const char *str)
 	{
 		if (strcmp(g_valid[i], str) == 0)
 			return (getid(i));
+//			putnbr(i);
+//			putchar('\n');
 		i++;
 	}
+	putstr(str);
 	error(NULL);
 	return (-1);
 }
