@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:02:10 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:39:21 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 15:16:13 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,6 @@ void			resolve(t_params *params);
 void			searchdot(char **sqr, int *coord, int *size, int i);
 int				squareroot(int i);
 int				strcmp(const char *s1, const char *s2);
-char			*strcpy(char *dest, const char *src);
-char			*strdup(const char *s1);
-size_t			strlen(const char *str);
 char			**sqrinc(char **sqr, int *gridsize);
 void			tabprint(char **sqr, int size);
 char			**taballoc(int gridsize, int *index);
