@@ -6,14 +6,14 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:23:09 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 21:38:03 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 23:07:27 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "frankerz.h"
 
-static int		move_cursor(int tetrimino, t_params *params)
+static int	move_cursor(int tetrimino, t_params *params)
 {
 	int	cursor;
 	int t[2];
@@ -97,10 +97,8 @@ static void	putinsqr(int tetrimino, t_params *params)
 	Y = 0;
 }
 
-void			resolve(t_params *params)
+void		resolve(t_params *params)
 {
-	int tmp;
-
 	X = 0;
 	Y = 0;
 	while (LET_TO_PLACE != -1)

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:27:56 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:27:57 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 23:05:55 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ char	**taballoc(int gridsize, int *index)
 	}
 	return (newsqr);
 }
-
