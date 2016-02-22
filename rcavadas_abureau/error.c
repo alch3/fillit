@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:00:45 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:00:46 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 18:29:33 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(int *tab)
 {
-	putstr("error");
+	putstr("error\n");
 	if (tab)
 		free(tab);
 	exit(3);

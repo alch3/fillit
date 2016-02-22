@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   searchdot.c                                        :+:      :+:    :+:   */
+/*   onestepback.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 14:25:00 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:25:02 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 16:10:49 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 17:39:42 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	backintime(char **sqr, int size, char letter)
+void	reinitcntrs(t_params *params)
+{
+	int	tmpletter;
+
+	tmpletter = LETTER + 1;
+	while (tmpletter <= NBPIECE)
+	{
+		params->triescnt[tmpletter] = 0;
+		tmpletter++;
+	}
+}
+
+void	onestepback(t_params *params)
 {
 	int		nl;
 	int		i;
@@ -21,23 +33,19 @@ static void	backintime(char **sqr, int size, char letter)
 	nl = 4;
 	i = 0;
 	j = 0;
+	reinitcntrs(params);
 	while (nl > 0)
 	{
-		if (sqr[i][j] == letter)
+		if (params->sqr[i][j] == LETTER + 'A')
 		{
-			sqr[i][j] = '.';
+			params->sqr[i][j] = '.';
 			nl--;
 		}
 		j++;
-		if (j == size)
+		if (j == *SQR_SIZE)
 		{
 			i++;
 			j = 0;
 		}
 	}
-}
-
-void		searchdot(char **sqr, int *coord, int *size, int i)
-{
-	backintime(sqr, *size, (char)i + 'A');
 }

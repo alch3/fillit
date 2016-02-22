@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:23:09 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:36:25 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/22 18:08:50 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,20 @@ static int		move_cursor(int tetrimino, t_params *params)
 
 static void	caniwrite(int tetrimino, t_params *params)
 {
+	int cnt;
+
+	cnt = 0;
 	while ((X < *SQR_SIZE) && (Y < *SQR_SIZE))
 	{
 		if (params->sqr[Y][X] == '.')
 			if (move_cursor(tetrimino, params))
 			{
-				params->iswritable = 1;
-				return ;
+				if (params->triescnt[LETTER] == cnt)
+				{
+					params->iswritable = 1;
+					return ;
+				}
+				cnt++;
 			}
 		X += 1;
 		if ((X >= *SQR_SIZE) && (Y < *SQR_SIZE))
@@ -58,6 +65,7 @@ static void	caniwrite(int tetrimino, t_params *params)
 			Y += 1;
 		}
 	}
+	LETTER--;
 	X = 0;
 	Y = 0;
 	params->iswritable = 0;
@@ -95,10 +103,21 @@ void			resolve(t_params *params)
 
 	X = 0;
 	Y = 0;
-	while(LET_TO_PLACE != -1)
+	while (LET_TO_PLACE != -1)
 	{
 		caniwrite(LET_TO_PLACE, params);
 		if (params->iswritable == 1)
 			putinsqr(LET_TO_PLACE, params);
+		else if (params->iswritable == 0 && LETTER == -1)
+		{
+			params->sqr = sqrinc(params->sqr, SQR_SIZE);
+			reinitcntrs(params);
+			LETTER = 0;
+		}
+		else if (params->iswritable == 0)
+		{
+			onestepback(params);
+			params->triescnt[LETTER]++;
+		}
 	}
 }
