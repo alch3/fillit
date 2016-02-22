@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrange.c                                       :+:      :+:    :+:   */
+/*   arrange.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 16:03:58 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/20 19:26:45 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 13:58:45 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 14:00:31 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fillit.h"
+#include "fillit.h"
 
-static int		ft_nbpieces(int *tab)
+static int		nbpieces(int *tab)
 {
 	int		index;
 
@@ -21,7 +21,7 @@ static int		ft_nbpieces(int *tab)
 	return (index - 1);
 }
 
-static char		**ft_sqrgen(int nbtetri)
+static char		**sqrgen(int nbtetri)
 {
 	char	**sqr;
 	int		index;
@@ -29,10 +29,10 @@ static char		**ft_sqrgen(int nbtetri)
 	int		j;
 	int		gridsize;
 
-	gridsize = ft_squareroot(nbtetri * 4);
+	gridsize = squareroot(nbtetri * 4);
 	i = 0;
 	j = 0;
-	sqr = ft_taballoc(gridsize, &index);
+	sqr = taballoc(gridsize, &index);
 	while ((i < index - 1) && (j < index))
 	{
 		sqr[i][j] = '.';
@@ -53,14 +53,14 @@ static t_params	initstruct(int *tab, int *gridsize)
 
 	i = 0;
 	params.typearray = tab;
-	params.sqr_size = gridsize;
+	params.sqrsize = gridsize;
 	params.letter = 0;
-	params.nbpiece = ft_nbpieces(params.typearray);
-	params.sqr = ft_sqrgen(params.nbpiece);
+	params.nbpiece = nbpieces(params.typearray);
+	params.sqr = sqrgen(params.nbpiece);
 	params.is_writable = 0;
 	while(params.typearray[i] != -1)
 	{
-		params.tries_cnt[i] = 0;
+		params.triescnt[i] = 0;
 		i++;
 	}
 	return (params);
@@ -73,11 +73,11 @@ void			ft_arrange(int *tab)
 	int			gridsize;
 	t_params	params;
 
-	nbtetri = ft_nbpieces(tab);
-	gridsize = ft_squareroot(nbtetri * 4);
+	nbtetri = nbpieces(tab);
+	gridsize = squareroot(nbtetri * 4);
 	params = initstruct(tab, &gridsize);
-	params.sqr = ft_sqrinc(params.sqr,&gridsize);
+	params.sqr = sqrinc(params.sqr,&gridsize);
 	resolve(params);
-	ft_printstruct(params);
-	ft_tabprint(params.sqr, gridsize);
+	printstruct(params);
+	tabprint(params.sqr, gridsize);
 }
