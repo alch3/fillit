@@ -138,7 +138,7 @@ int	filecomp(const char *str)
 			return (getid(i));
 		i++;
 	}
-	putstr(str);
+	ft_putstr(str);
 	error(NULL);
 	return (-1);
 }

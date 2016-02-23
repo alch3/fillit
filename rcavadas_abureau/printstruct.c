@@ -17,23 +17,23 @@ void	printstruct(t_params params)
 	int i;
 
 	i = 0;
-	putstr("\nnb tetri : ");
-	putnbr(params.nbpiece);
-	putstr("\n[0]  =  ");
-	putnbr(params.typearray[0]);
-	putstr("\n[1]  =  ");
-	putnbr(params.typearray[1]);
-	putstr("\n[2]  =  ");
-	putnbr(params.typearray[2]);
-	putstr("\n[3]  =  ");
-	putnbr(params.typearray[3]);
-	putendl("\n\nRECAP STATE FAIL\n\n");
+	ft_putstr("\nnb tetri : ");
+	ft_putnbr(params.nbpiece);
+	ft_putstr("\n[0]  =  ");
+	ft_putnbr(params.typearray[0]);
+	ft_putstr("\n[1]  =  ");
+	ft_putnbr(params.typearray[1]);
+	ft_putstr("\n[2]  =  ");
+	ft_putnbr(params.typearray[2]);
+	ft_putstr("\n[3]  =  ");
+	ft_putnbr(params.typearray[3]);
+	ft_putendl("\n\nRECAP STATE FAIL\n\n");
 	while (params.typearray[i] != -1)
 	{
-		putchar(i + 'A');
-		putstr(" = ");
-		putnbr(params.triescnt[0]);
-		putchar('\n');
+		ft_putchar(i + 'A');
+		ft_putstr(" = ");
+		ft_putnbr(params.triescnt[0]);
+		ft_putchar('\n');
 		i++;
 	}
 }

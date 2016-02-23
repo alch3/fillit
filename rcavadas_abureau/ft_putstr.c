@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putendl.c                                          :+:      :+:    :+:   */
+/*   putstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 14:22:22 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:22:23 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/22 14:22:52 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/22 14:22:54 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	putendl(const char *str)
+void	ft_putstr(char const *str)
 {
-	putstr(str);
-	putchar('\n');
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 }

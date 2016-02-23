@@ -46,10 +46,10 @@ int				*filetotab(int fd);
 int				getid(int tabindex);
 void			onestepback(t_params *params);
 void			printstruct(t_params params);
-void			putchar(char c);
-void			putnbr(int i);
-void			putstr(const char *str);
-void			putendl(const char *str);
+void			ft_putchar(char c);
+void			ft_putnbr(int i);
+void			ft_putstr(const char *str);
+void			ft_putendl(const char *str);
 void			reinitcntrs(t_params *params);
 void			resolve(t_params *params);
 void			searchdot(char **sqr, int *coord, int *size, int i);
@@ -58,4 +58,5 @@ int				strcmp(const char *s1, const char *s2);
 char			**sqrinc(char **sqr, int *gridsize);
 void			tabprint(char **sqr, int size);
 char			**taballoc(int gridsize, int *index);
+
 #endif

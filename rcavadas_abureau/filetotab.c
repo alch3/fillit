@@ -33,7 +33,7 @@ int	*filetotab(int fd)
 		tab[index++] = filecomp(buf);
 		nbchar = nbchar + ret;
 	}
-	putnbr(nbchar);
+	ft_putnbr(nbchar);
 	if (nbchar % 21 == 0)
 		error(tab);
 	fileclose(fd);

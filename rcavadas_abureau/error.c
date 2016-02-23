@@ -14,7 +14,7 @@
 
 void	error(int *tab)
 {
-	putstr("error\n");
+	ft_putstr("error\n");
 	if (tab)
 		free(tab);
 	exit(3);
