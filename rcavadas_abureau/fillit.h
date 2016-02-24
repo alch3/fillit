@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:02:10 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 17:48:51 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:40:38 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,16 @@ int				fileclose(int fd);
 int				filecomp(const char *str);
 int				filegetfd(char *str);
 int				*filetotab(int fd);
+void			ft_putchar(char c);
+void			ft_putendl(const char *str);
+void			ft_putstr(const char *str);
+int				ft_strcmp(const char *s1, const char *s2);
 int				getid(int tabindex);
 void			onestepback(t_params *params);
-void			printstruct(t_params params);
-void			ft_putchar(char c);
-void			ft_putnbr(int i);
-void			ft_putstr(const char *str);
-void			ft_putendl(const char *str);
 void			reinitcntrs(t_params *params);
 void			resolve(t_params *params);
 void			searchdot(char **sqr, int *coord, int *size, int i);
 int				squareroot(int i);
-int				strcmp(const char *s1, const char *s2);
 char			**sqrinc(char **sqr, int *gridsize);
 void			tabprint(char **sqr, int size);
 char			**taballoc(int gridsize, int *index);

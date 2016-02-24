@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:01:03 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 23:34:46 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:40:58 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,11 +134,10 @@ int	filecomp(const char *str)
 	i = 0;
 	while (i < 113)
 	{
-		if (strcmp(g_valid[i], str) == 0)
+		if (ft_strcmp(g_valid[i], str) == 0)
 			return (getid(i));
 		i++;
 	}
-	ft_putstr(str);
 	error(NULL);
 	return (-1);
 }

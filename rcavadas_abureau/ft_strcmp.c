@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr.c                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 14:22:44 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 14:22:45 by rcavadas         ###   ########.fr       */
+/*   Created: 2016/02/23 18:43:09 by rcavadas          #+#    #+#             */
+/*   Updated: 2016/02/23 18:53:57 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	absolute(int i)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (i < 0)
-		i *= -1;
-	return (i);
-}
+	size_t	i;
 
-void		ft_putnbr(int i)
-{
-	if (i < 0)
-		ft_putchar('-');
-	if (i < 10 && i > -10)
-		ft_putchar('0' + absolute(i));
-	else
-	{
-		ft_putnbr(absolute(i / 10));
-		ft_putchar('0' + absolute(i % 10));
-	}
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -6,7 +6,7 @@
 /*   By: rcavadas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 14:01:53 by rcavadas          #+#    #+#             */
-/*   Updated: 2016/02/22 23:17:09 by rcavadas         ###   ########.fr       */
+/*   Updated: 2016/02/23 17:54:15 by rcavadas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ int	*filetotab(int fd)
 	index = 0;
 	nbchar = 0;
 	tab = (int*)malloc(sizeof(int) * 27);
+	if (!tab)
+		error(tab);
 	while ((ret = read(fd, buf, 21)))
 	{
 		if (ret == 20)
-		{
 			buf[20] = '\n';
-			buf[21] = '\0';
-		}
+		buf[21] = '\0';
 		tab[index++] = filecomp(buf);
 		nbchar = nbchar + ret;
 	}
-	ft_putnbr(nbchar);
 	if (nbchar % 21 == 0)
 		error(tab);
-	fileclose(fd);
+	if (fd)
+		fileclose(fd);
 	tab[index] = -1;
 	return (tab);
 }
